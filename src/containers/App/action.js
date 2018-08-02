@@ -1,11 +1,12 @@
-export const successTokenCheck = () => {
+export const successTokenCheck = (params) => {
   return {
     type: 'SUCCESS_TOKEN_CHECK',
+    params: params
   }
 }
 
-export const failedTokenCheck = () => {
+export const successLogout = () => {
   return {
-    type: 'SUCCESS_TOKEN_CHECK',
+    type: 'SUCCESS_LOGOUT',
   }
 }
