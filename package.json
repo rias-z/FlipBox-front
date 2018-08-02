@@ -1,0 +1,29 @@
+{
+  "name": "flipbox",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "hash.js": "^1.1.5",
+    "lodash": "^4.17.10",
+    "material-ui": "^0.20.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^3.3.3",
+    "superagent": "^3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "main": "index.js",
+  "repository": "git@github.com:rias-z/FlipBox-front.git",
+  "author": "rias-z <chestermx88@gmail.com>",
+  "license": "MIT"
+}
