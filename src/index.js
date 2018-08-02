@@ -1,7 +1,35 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import thunk from 'redux-thunk'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import reducer from './reducer'
 // import registerServiceWorker from './registerServiceWorker'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import App from './containers/App'
+
+
+const store = createStore(
+  reducer,
+  applyMiddleware(thunk),
+)
+
+
+ReactDOM.render(
+  (
+    <Provider store={store}>
+      <MuiThemeProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route path='/' component={App} />
+          </Switch>
+        </BrowserRouter>
+      </MuiThemeProvider>
+    </Provider>
+  ),
+  document.getElementById('root')
+)
+
 // registerServiceWorker()
