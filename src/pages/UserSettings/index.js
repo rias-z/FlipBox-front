@@ -6,7 +6,7 @@ class UserSettings extends Component {
   render() {
     return (
       <div className="UserSettings">
-        UserSettings
+        UserSettings (private)
       </div>
     )
   }

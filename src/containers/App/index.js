@@ -22,6 +22,8 @@ class App extends Component {
           [App]<br />
           + isAuthenticated: {this.props.isAuthenticated.toString()}<br />
           + isTokenChecked: {this.props.isTokenChecked.toString()}<br />
+          - <a href='/'>top</a><br />
+          - <a href='/settings'>/settings</a><br />
           [/]<br /><br />
 
           <Switch>
