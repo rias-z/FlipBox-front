@@ -4,16 +4,22 @@ import thunk from 'redux-thunk'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+import { compose, createStore, applyMiddleware } from 'redux'
 import reducer from './reducer'
 // import registerServiceWorker from './registerServiceWorker'
 
 import App from './containers/App'
 
 
+const devTool = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+
 const store = createStore(
   reducer,
-  applyMiddleware(thunk),
+  compose(
+    applyMiddleware(thunk),
+    devTool
+  )
 )
 
 
