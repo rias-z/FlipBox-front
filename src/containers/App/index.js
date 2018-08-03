@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 
 // pages
 import Top from '../../pages/Top'
+import FlipDetail from '../../pages/FlipDetail'
 import UserSettings from '../../pages/UserSettings'
 
 // logic
@@ -28,6 +29,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path='/' component={Top} />
+            <Route path='/flip/:flip_id' component={FlipDetail} />
 
             {(() => {
               if (this.props.isAuthenticated) {
