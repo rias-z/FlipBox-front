@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 
 // pages
 import Top from '../../pages/Top'
+import FlipDetail from '../../pages/FlipDetail'
 import UserSettings from '../../pages/UserSettings'
 
 // logic
@@ -24,10 +25,13 @@ class App extends Component {
           + isTokenChecked: {this.props.isTokenChecked.toString()}<br />
           - <a href='/'>top</a><br />
           - <a href='/settings'>/settings</a><br />
+          - <a href='/flip/10'>/flip/10 (login)</a><br />
+          - <a href='/flip/11'>/flip/11 (非login)</a><br />
           [/]<br /><br />
 
           <Switch>
             <Route exact path='/' component={Top} />
+            <Route path='/flip/:flip_id' component={FlipDetail} />
 
             {(() => {
               if (this.props.isAuthenticated) {

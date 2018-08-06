@@ -11,9 +11,9 @@ const MainView = (props) => {
         <div key={f.flip.flip_id}>
           ---------------------------------------------------------------<br />
           | * [{f.flip.flip_id}] <a href={'flip/' + f.flip.flip_id}>{f.flip.title}</a><br />
-          | user [id: {f.user.user_id} username: {f.user.username} thumbnail: {f.user.thumbnail}]<br />
-          | bmk: {f.bookmark_cnt} gb: {f.good_cnt}<br />
-          | create_at: {f.create_at}<br />
+          | author [id: {f.author.user_id} username: {f.author.username} thumbnail: {f.author.thumbnail}]<br />
+          | bmk: {f.flip.bookmark_cnt} gb: {f.flip.good_cnt}<br />
+          | create_at: {f.flip.create_at}<br />
           ---------------------------------------------------------------<br />
         </div>
       ))}
