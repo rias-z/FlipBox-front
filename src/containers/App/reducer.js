@@ -1,6 +1,7 @@
 const initialState = {
   isAuthenticated: false,
   isTokenChecked: false,
+  username: '',
 }
 
 export default (state = initialState, action) => {
@@ -9,6 +10,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         isAuthenticated: action.params.isAuthenticated,
         isTokenChecked: action.params.isTokenChecked,
+        username: action.params.username,
       })
     }
     case 'SUCCESS_LOGOUT': {
