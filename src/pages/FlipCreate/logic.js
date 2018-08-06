@@ -1,5 +1,4 @@
 import { apiPostFlip } from "./api"
-import { successPostFlip } from './action'
 
 
 export const postFlip = (props, params) => async (dispatch) => {
