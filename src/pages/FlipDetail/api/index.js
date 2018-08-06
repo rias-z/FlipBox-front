@@ -32,3 +32,42 @@ export const apiGetFlipDetail = async (flip_id) => {
   return res.body
 }
 
+export const apiPostFlipBookmark = async (flip_id) => {
+  /** flipをブックマークする
+   *  @param
+   *  flip_id
+   */
+  await request
+    .post(API_ENDPOINT + 'bookmark')
+    .send({'flip_id': flip_id})
+}
+
+export const apiPostFlipGood = async (flip_id) => {
+  /** flipをいいねする
+   *  @param
+   *  flip_id
+   */
+  await request
+    .post(API_ENDPOINT + 'good')
+    .send({'flip_id': flip_id})
+}
+
+export const apiRevertFlipBookmark = async (flip_id) => {
+  /** flipのブックマークを取り消す
+   *  @param
+   *  flip_id
+   */
+  await request
+    .del(API_ENDPOINT + 'bookmark')
+    .send({'flip_id': flip_id})
+}
+
+export const apiRevertFlipGood = async (flip_id) => {
+  /** flipのいいねを取り消す
+   *  @param
+   *  flip_id
+   */
+  await request
+    .del(API_ENDPOINT + 'good')
+    .send({'flip_id': flip_id})
+}

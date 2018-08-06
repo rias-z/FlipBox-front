@@ -1,6 +1,19 @@
-import { apiGetFlipDetail } from "./api";
+import {
+  apiGetFlipDetail,
+  apiPostFlipBookmark,
+  apiPostFlipGood,
+  apiRevertFlipBookmark,
+  apiRevertFlipGood,
+} from "./api";
 
-import { successInitializedFlipDetail, failedInitializedFlipDetail } from './action'
+import {
+  successInitializedFlipDetail,
+  failedInitializedFlipDetail,
+  successPostFlipBookmark,
+  successPostFlipGood,
+  successRevertFlipGood,
+  successRevertFlipBookmark,
+} from './action'
 
 
 export const initializedFlipDetail = (flip_id) => async (dispatch) => {
@@ -18,5 +31,41 @@ export const initializedFlipDetail = (flip_id) => async (dispatch) => {
       console.log("Error: 404 not found")
     }
     dispatch(failedInitializedFlipDetail())
+  }
+}
+
+export const postFlipBookmark = (flip_id) => async (dispatch) => {
+  try {
+    await apiPostFlipBookmark(flip_id)
+    dispatch(successPostFlipBookmark())
+  } catch (err) {
+    // TODO: エラー時のポップアップ表示
+  }
+}
+
+export const postFlipGood = (flip_id) => async (dispatch) => {
+  try {
+    await apiPostFlipGood(flip_id)
+    dispatch(successPostFlipGood())
+  } catch (err) {
+    // TODO: エラー時のポップアップ表示
+  }
+}
+
+export const revertFlipBookmark = (flip_id) => async (dispatch) => {
+  try {
+    await apiRevertFlipBookmark(flip_id)
+    dispatch(successRevertFlipBookmark())
+  } catch (err) {
+    // TODO: エラー時のポップアップ表示
+  }
+}
+
+export const revertFlipGood = (flip_id) => async (dispatch) => {
+  try {
+    await apiRevertFlipGood(flip_id)
+    dispatch(successRevertFlipGood())
+  } catch (err) {
+    // TODO: エラー時のポップアップ表示
   }
 }

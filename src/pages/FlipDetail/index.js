@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 // api
-import { initializedFlipDetail } from './logic'
+import {
+  initializedFlipDetail,
+  postFlipBookmark,
+  postFlipGood,
+  revertFlipBookmark,
+  revertFlipGood,
+} from './logic'
 
 
 class FlipDetail extends Component {
@@ -40,6 +46,56 @@ class FlipDetail extends Component {
               <br />
             </div>
           ))}
+
+          {(() => {
+            if (this.props.isAuthenticated) {
+              const renderFlipGoodButton = !this.props.isGood ? (
+                <div>
+                  いいね：{this.props.goodCnt}_
+                  <input type='button' value='いいねする' onClick={() => {
+                    this.props.postFlipGood(flip.flip_id)
+                  }} />
+                </div>
+              ) : (
+                <div>
+                  いいね：{this.props.goodCnt}_
+                  <input type='button' value='いいねを取り消す' onClick={() => {
+                    this.props.revertFlipGood(flip.flip_id)
+                  }} />
+                </div>
+              )
+
+              const renderFlipBookmarkButton = !this.props.isBookmark ? (
+                <div>
+                  ブックマーク：{this.props.bookmarkCnt}_
+                  <input type='button' value='ブックマークする' onClick={() => {
+                    this.props.postFlipBookmark(flip.flip_id)
+                  }} />
+                </div>
+              ) : (
+                <div>
+                  ブックマーク：{this.props.bookmarkCnt}_
+                  <input type='button' value='ブックマークを取り消す' onClick={() => {
+                    this.props.revertFlipBookmark(flip.flip_id)
+                  }} />
+                </div>
+              )
+
+              return (
+                <div>
+                  {renderFlipGoodButton}
+                  {renderFlipBookmarkButton}
+                </div>
+              )
+            } else {
+              return (
+                <div>
+                  いいね： {this.props.goodCnt}<br />
+                  ブックマーク： {this.props.bookmarkCnt}<br />
+                </div>
+              )
+            }
+          })()}
         </div>
       )
     } else {
@@ -51,11 +107,20 @@ class FlipDetail extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  isAuthenticated: state.App.isAuthenticated,
+  bookmarkCnt: state.FlipDetail.bookmarkCnt,
+  goodCnt: state.FlipDetail.goodCnt,
   flipDetail: state.FlipDetail.flipDetail,
+  isBookmark: state.FlipDetail.isBookmark,
+  isGood: state.FlipDetail.isGood,
   isLoading: state.FlipDetail.isLoading,
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  postFlipBookmark: (flip_id) => dispatch(postFlipBookmark(flip_id)),
+  postFlipGood: (flip_id) => dispatch(postFlipGood(flip_id)),
+  revertFlipBookmark: (flip_id) => dispatch(revertFlipBookmark(flip_id)),
+  revertFlipGood: (flip_id) => dispatch(revertFlipGood(flip_id)),
   initializedFlipDetail: (flip_id) => dispatch(initializedFlipDetail(flip_id)),
 })
 
