@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-// api
+// logic
 import {
   initializedFlipDetail,
   postFlipBookmark,
@@ -26,7 +26,7 @@ class FlipDetail extends Component {
 
       return (
         <div className="FlipDetail">
-          --- FlipDetail (public) ---
+          --- FlipDetail ---
           <br />
           Author:<br/>
           [{author.user_id}] {author.username} {author.thumbnail}<br />
