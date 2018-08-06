@@ -5,6 +5,7 @@ import FlipDetail from './pages/FlipDetail/reducer'
 import FlipEdit from './pages/FlipEdit/reducer'
 import Search from './pages/Search/reducer'
 import Top from './pages/Top/reducer'
+import UserDetail from './pages/UserDetail/reducer'
 
 
 export default combineReducers({
@@ -13,4 +14,5 @@ export default combineReducers({
   FlipEdit,
   Search,
   Top,
+  UserDetail,
 })

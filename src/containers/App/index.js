@@ -8,6 +8,7 @@ import FlipCreate from '../../pages/FlipCreate'
 import FlipDetail from '../../pages/FlipDetail'
 import FlipEdit from '../../pages/FlipEdit'
 import Search from '../../pages/Search'
+import UserDetail from '../../pages/UserDetail'
 import UserSettings from '../../pages/UserSettings'
 
 // components
@@ -26,6 +27,7 @@ const AdminManager = (props) => (
     ∟ isAuthenticated: {props.isAuthenticated.toString()}<br />
     ∟ isTokenChecked: {props.isTokenChecked.toString()}<br />
     - <a href='/'>top</a><br />
+    - <a href='/user/rias-z'>/user/rias-z</a><br />
     - <a href='/settings'>/settings</a><br />
     - <a href='/flip/10'>/flip/10</a><br />
     - <a href='/flip/11'>/flip/11</a><br />
@@ -64,6 +66,7 @@ class App extends Component {
               <Route exact path='/' component={Top} />
               <Route exact path='/flip/:flip_id' component={FlipDetail} />
               <Route path='/search' component={Search} />
+              <Route path='/user/:username' component={UserDetail} />
 
               {(() => {
                 if (this.props.isAuthenticated) {
