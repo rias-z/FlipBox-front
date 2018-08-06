@@ -28,6 +28,21 @@ class FlipDetail extends Component {
         <div className="FlipDetail">
           --- FlipDetail ---
           <br />
+
+          {(() => {
+            if (this.props.isAuthenticated) {
+              return (
+                <div>
+                  <input type='button' value='編集する' onClick={(e) => {
+                    e.preventDefault()
+                    this.props.history.push(flip.flip_id + '/edit')
+                  }} />
+                </div>
+              )
+            }
+          })()}
+
+          <br />
           Author:<br/>
           [{author.user_id}] {author.username} {author.thumbnail}<br />
           <br />
@@ -111,6 +126,7 @@ const mapStateToProps = (state) => ({
   bookmarkCnt: state.FlipDetail.bookmarkCnt,
   goodCnt: state.FlipDetail.goodCnt,
   flipDetail: state.FlipDetail.flipDetail,
+  isAuthor: state.FlipDetail.isAuthor,
   isBookmark: state.FlipDetail.isBookmark,
   isGood: state.FlipDetail.isGood,
   isLoading: state.FlipDetail.isLoading,
