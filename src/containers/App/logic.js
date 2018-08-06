@@ -29,7 +29,8 @@ export const initializedApp = () => async (dispatch) => {
 
     dispatch(successTokenCheck({
       isAuthenticated: true,
-      isTokenChecked: true
+      isTokenChecked: true,
+      username: result.user.username,
     }))
   } catch (err) {
     // ログアウト
