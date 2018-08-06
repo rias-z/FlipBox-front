@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 
 // pages
 import Top from '../../pages/Top'
+import FlipCreate from '../../pages/FlipCreate'
 import FlipDetail from '../../pages/FlipDetail'
 import UserSettings from '../../pages/UserSettings'
 
@@ -25,8 +26,9 @@ class App extends Component {
           + isTokenChecked: {this.props.isTokenChecked.toString()}<br />
           - <a href='/'>top</a><br />
           - <a href='/settings'>/settings</a><br />
-          - <a href='/flip/10'>/flip/10 (login)</a><br />
-          - <a href='/flip/11'>/flip/11 (非login)</a><br />
+          - <a href='/flip/10'>/flip/10</a><br />
+          - <a href='/flip/11'>/flip/11</a><br />
+          - <a href='/new'>/new（flip新規作成）</a><br />
           [/]<br /><br />
 
           <Switch>
@@ -37,6 +39,7 @@ class App extends Component {
               if (this.props.isAuthenticated) {
                 return (
                   <Switch>
+                    <Route path='/new' component={FlipCreate} />
                     <Route path='/settings' component={UserSettings} />
                   </Switch>
                 )
