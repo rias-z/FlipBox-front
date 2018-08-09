@@ -51,6 +51,8 @@ const Header = (props) => {
           <StyledMenuItem><a href='/search'>キーワード/タグ検索</a></StyledMenuItem>
           <StyledMenuItem><a href='/'>Flipリスト</a></StyledMenuItem>
           <StyledMenuItem><a href='/'>Flip作成</a></StyledMenuItem>
+          <StyledMenuItem><a href='/prov_register'>登録</a></StyledMenuItem>
+          <StyledMenuItem><a href='/login'>ログイン</a></StyledMenuItem>
         </StyledMenu>
       </StyledHeader>
     )
