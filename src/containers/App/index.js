@@ -7,6 +7,7 @@ import Top from '../../pages/Top'
 import FlipCreate from '../../pages/FlipCreate'
 import FlipDetail from '../../pages/FlipDetail'
 import FlipEdit from '../../pages/FlipEdit'
+import ProvRegister from '../../pages/ProvRegister'
 import Search from '../../pages/Search'
 import UserDetail from '../../pages/UserDetail'
 import UserSettings from '../../pages/UserSettings'
@@ -68,6 +69,8 @@ class App extends Component {
               <Route path='/search' component={Search} />
               <Route path='/user/:username' component={UserDetail} />
 
+              {/* ログインしている場合，'/'にリダイレクト */}
+              <Route path='/prov_register' component={ProvRegister} />
               {(() => {
                 if (this.props.isAuthenticated) {
                   return (
