@@ -8,6 +8,7 @@ import FlipCreate from '../../pages/FlipCreate'
 import FlipDetail from '../../pages/FlipDetail'
 import FlipEdit from '../../pages/FlipEdit'
 import ProvRegister from '../../pages/ProvRegister'
+import Register from '../../pages/Register'
 import Search from '../../pages/Search'
 import UserDetail from '../../pages/UserDetail'
 import UserSettings from '../../pages/UserSettings'
@@ -39,6 +40,7 @@ const AdminManager = (props) => (
     - <a href='/search?q=react'>/search?q=react</a><br />
     - <a href='/search?p=2&q=react'>/search?p=2&q=react</a><br />
     - <a href='/search?p=2&q=react&s=bookmark'>/search?page=2&s=react&s=bookmark</a><br />
+    - <a href='/register'>/register</a><br />
     ---------------------------------------------------------------------<br />
   </div>
 )
@@ -71,6 +73,7 @@ class App extends Component {
 
               {/* ログインしている場合，'/'にリダイレクト */}
               <Route path='/prov_register' component={ProvRegister} />
+              <Route path='/register' component={Register} />
               {(() => {
                 if (this.props.isAuthenticated) {
                   return (
