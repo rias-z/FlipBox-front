@@ -36,7 +36,7 @@ const AdminManager = (props) => (
     - <a href='/flip/11'>/flip/11</a><br />
     - <a href='/flip/10/edit'>/flip/10/edit</a><br />
     - <a href='/flip/11/edit'>/flip/11/edit</a><br />
-    - <a href='/new'>/new（flip新規kk作成）</a><br />
+    - <a href='/new'>/new（flip新規作成）</a><br />
     - <a href='/search'>/search（クエリ設定なし）</a><br />
     - <a href='/search?q=react'>/search?q=react</a><br />
     - <a href='/search?p=2&q=react'>/search?p=2&q=react</a><br />
