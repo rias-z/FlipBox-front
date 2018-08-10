@@ -1,4 +1,5 @@
 import {
+  apiDeleteFlip,
   apiGetFlipDetail,
   apiPostFlipBookmark,
   apiPostFlipGood,
@@ -31,6 +32,20 @@ export const initializedFlipDetail = (flip_id) => async (dispatch) => {
       console.log("Error: 404 not found")
     }
     dispatch(failedInitializedFlipDetail())
+  }
+}
+
+export const deleteFlip = (props, flip_id, username) => async (dispatch) => {
+  try {
+    // flip削除
+    await apiDeleteFlip(flip_id)
+
+    // TODO: 削除しましたのポップアップを表示する
+
+    // '/user/<username>'に遷移
+    props.history.push('/user/' + username)
+  } catch (err) {
+    // TODO: エラー時のポップアップ表示
   }
 }
 

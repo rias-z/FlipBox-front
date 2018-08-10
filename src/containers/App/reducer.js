@@ -1,6 +1,7 @@
 const initialState = {
   isAuthenticated: false,
   isTokenChecked: false,
+  userId: null,
   username: '',
 }
 
@@ -10,6 +11,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         isAuthenticated: action.params.isAuthenticated,
         isTokenChecked: action.params.isTokenChecked,
+        userId: action.params.userId,
         username: action.params.username,
       })
     }
@@ -17,6 +19,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         isAuthenticated: false,
         isTokenChecked: true,
+        userId: null,
+        username: '',
       })
     }
     default:

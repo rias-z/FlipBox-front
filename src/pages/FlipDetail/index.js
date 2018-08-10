@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 // logic
 import {
+  deleteFlip,
   initializedFlipDetail,
   postFlipBookmark,
   postFlipGood,
@@ -30,9 +31,20 @@ class FlipDetail extends Component {
           <br />
 
           {(() => {
-            if (this.props.isAuthenticated) {
+            if (this.props.isAuthor) {
               return (
                 <div>
+                  <h3>Flip作成者メニュー</h3>
+                  <input type='button' value='削除する' onClick={(e) => {
+                    e.preventDefault()
+                    this.props.deleteFlip(flip.flip_id, this.props.username)
+                  }} />
+                </div>
+                )
+            } else if (this.props.isAuthenticated) {
+              return (
+                <div>
+                  <h3>ログインメニュー</h3>
                   <input type='button' value='編集する' onClick={(e) => {
                     e.preventDefault()
                     this.props.history.push(flip.flip_id + '/edit')
@@ -123,6 +135,8 @@ class FlipDetail extends Component {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.App.isAuthenticated,
+  userId: state.App.userId,
+  username: state.App.username,
   bookmarkCnt: state.FlipDetail.bookmarkCnt,
   goodCnt: state.FlipDetail.goodCnt,
   flipDetail: state.FlipDetail.flipDetail,
@@ -132,7 +146,8 @@ const mapStateToProps = (state) => ({
   isLoading: state.FlipDetail.isLoading,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, getState) => ({
+  deleteFlip: (flip_id, username) => dispatch(deleteFlip(getState, flip_id, username)),
   postFlipBookmark: (flip_id) => dispatch(postFlipBookmark(flip_id)),
   postFlipGood: (flip_id) => dispatch(postFlipGood(flip_id)),
   revertFlipBookmark: (flip_id) => dispatch(revertFlipBookmark(flip_id)),

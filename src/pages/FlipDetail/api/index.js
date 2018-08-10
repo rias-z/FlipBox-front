@@ -4,6 +4,13 @@ import request from 'superagent'
 import { API_ENDPOINT } from '../../../config'
 
 
+export const apiDeleteFlip = async (flip_id) => {
+  const res = await request
+    .del(API_ENDPOINT + 'flip/' + flip_id)
+
+  return res.body
+}
+
 export const apiGetFlipDetail = async (flip_id) => {
   /** flip_idからflipの詳細を取得する
    *  @return

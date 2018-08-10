@@ -30,6 +30,7 @@ export const initializedApp = () => async (dispatch) => {
     dispatch(successTokenCheck({
       isAuthenticated: true,
       isTokenChecked: true,
+      userId: result.user.user_id,
       username: result.user.username,
     }))
   } catch (err) {
