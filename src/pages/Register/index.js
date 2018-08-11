@@ -32,8 +32,6 @@ class Register extends Component {
       password: password,
     })
 
-    console.log("successRegister")
-
     this.setState({
       isSubmit: true,
     })
