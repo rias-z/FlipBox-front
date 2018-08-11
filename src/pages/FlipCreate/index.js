@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+// components
+import ItemTables from '../../components/ItemTables'
+
 // logic
 import {
   postFlip,
@@ -8,25 +11,47 @@ import {
 
 
 class FlipCreate extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      items: [{
+        id: 1,
+        url: '',
+        name: '',
+        description: '',
+      }],
+      ids: [0],
+    }
+  }
+
+  setIds(ids) {
+    this.setState({
+      ids: ids,
+    })
+  }
+
   handleSubmit(e) {
-    const tags = e.target.tags.value.split(' ')
+    const { ids } = this.state
+    const target = e.target
+
+    const tags = target.tags.value.split(' ')
+
+
+    const items = ids.map(id => {
+      return {
+        url: target['url' + id].value,
+        name: target['name' + id].value,
+        description: '',
+      }
+    })
 
     this.props.postFlip({
       'flip': {
-        title: e.target.flipTitle.value,
+        title: target.flipTitle.value,
         tags: tags
       },
-      'items': [
-        {
-          url: 'https://www.google.co.jp/',
-          name: 'googleについて',
-        },
-        {
-          url: 'https://qiita.com/',
-          name: 'qiitaについて',
-          description: 'qiita詳細'
-        }
-      ]
+      'items': items,
     })
   }
 
@@ -35,17 +60,21 @@ class FlipCreate extends Component {
       <div className="FlipCreate">
         --- FlipCreate (login) ---
 
-      <form onSubmit={(e) => {
-        e.preventDefault()
-        this.handleSubmit(e)
-      }}>
-        <input type='text' name='flipTitle' placeholder='タイトル' defaultValue='temp_title' /><br />
-        <input type='text' name='tags' placeholder='タグをスペース区切りで入力' defaultValue='React Redux' /><br />
-        【保留】Item: url title description<br />
-        【保留】Item: url title description<br />
-        【保留】Item追加ボタン<br />
-        <button type='submit'>Flip作成</button>
-      </form>
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          this.handleSubmit(e)
+        }}>
+          <input type='text' name='flipTitle' placeholder='タイトル' defaultValue='temp_title' /><br />
+          <input type='text' name='tags' placeholder='タグをスペース区切りで入力' defaultValue='React Redux' /><br />
+
+          <button type='submit'>Flip作成</button>
+          <ItemTables
+            ids={this.state.ids}
+            setIds={(ids) => this.setIds(ids)}
+          />
+        </form>
+
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </div>
     )
   }
