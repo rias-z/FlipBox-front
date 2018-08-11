@@ -18,6 +18,7 @@ const Item = styled.div`
 `
 
 
+// TODO: Itemにdescriptionを表示する
 const FlipMainView = (props) => {
   const { flip, items } = props
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { IMAGE_ENDPOINT } from '../../config'
+// import { IMAGE_ENDPOINT } from '../../config'
 
 
 const Div = styled.div`

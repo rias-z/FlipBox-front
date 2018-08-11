@@ -96,6 +96,7 @@ class App extends Component {
       )
     } else {
       return (
+        // TODO: Loading中はヘッダー（要素なし）だけを表示するようにする
         <div className='App'>
           Loading...
         </div>
