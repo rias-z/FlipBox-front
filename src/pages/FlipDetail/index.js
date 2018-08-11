@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import FlipDetailSideBar from '../../components/FlipDetailSideBar'
 import FlipHeader from '../../components/FlipHeader'
 import FlipMainView from '../../components/FlipMainView'
+import FlipOptions from '../../components/FlipOptions'
 import FlipTagList from '../../components/FlipTagList'
 
 
@@ -29,11 +30,21 @@ class FlipDetail extends Component {
     this.props.initializedFlipDetail(flip_id)
   }
 
+  handleTransitionFlipEdit(flip_id) {
+    this.props.history.push(flip_id + '/edit')
+  }
+
   render() {
     if (this.props.isLoading) {
       const { author, flip, items, tags } = this.props.flipDetail
-      const { bookmarkCnt, goodCnt } = this.props
-      const { isBookmark, isGood } = this.props
+      const {
+        isAuthenticated,
+        isAuthor,
+        bookmarkCnt,
+        goodCnt,
+        isBookmark,
+        isGood,
+      } = this.props
 
       return (
         <div className="FlipDetail">
@@ -57,6 +68,13 @@ class FlipDetail extends Component {
             />
             <FlipTagList
               tags={tags}
+            />
+
+            {/* ゲスト，ユーザ，作成者ユーザでオプションを分ける */}
+            <FlipOptions
+              isAuthenticated={isAuthenticated}
+              isAuthor={isAuthor}
+              onSubmitFlipEdit={() => this.handleTransitionFlipEdit(flip.flip_id)}
             />
 
             {/* メインビュー */}
