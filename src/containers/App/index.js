@@ -24,27 +24,27 @@ import { initializedApp } from './logic'
 import { WrapperMain } from './styles'
 
 
-const AdminManager = (props) => (
-  <div>
-    [AdminManager]---------------------------------------------<br />
-    ∟ isAuthenticated: {props.isAuthenticated.toString()}<br />
-    ∟ isTokenChecked: {props.isTokenChecked.toString()}<br />
-    - <a href='/'>top</a><br />
-    - <a href='/user/rias-z'>/user/rias-z</a><br />
-    - <a href='/settings'>/settings</a><br />
-    - <a href='/flip/10'>/flip/10</a><br />
-    - <a href='/flip/11'>/flip/11</a><br />
-    - <a href='/flip/10/edit'>/flip/10/edit</a><br />
-    - <a href='/flip/11/edit'>/flip/11/edit</a><br />
-    - <a href='/new'>/new（flip新規作成）</a><br />
-    - <a href='/search'>/search（クエリ設定なし）</a><br />
-    - <a href='/search?q=react'>/search?q=react</a><br />
-    - <a href='/search?p=2&q=react'>/search?p=2&q=react</a><br />
-    - <a href='/search?p=2&q=react&s=bookmark'>/search?page=2&s=react&s=bookmark</a><br />
-    - <a href='/register'>/register</a><br />
-    ---------------------------------------------------------------------<br />
-  </div>
-)
+// const AdminManager = (props) => (
+//   <div>
+//     [AdminManager]---------------------------------------------<br />
+//     ∟ isAuthenticated: {props.isAuthenticated.toString()}<br />
+//     ∟ isTokenChecked: {props.isTokenChecked.toString()}<br />
+//     - <a href='/'>top</a><br />
+//     - <a href='/user/rias-z'>/user/rias-z</a><br />
+//     - <a href='/settings'>/settings</a><br />
+//     - <a href='/flip/10'>/flip/10</a><br />
+//     - <a href='/flip/11'>/flip/11</a><br />
+//     - <a href='/flip/10/edit'>/flip/10/edit</a><br />
+//     - <a href='/flip/11/edit'>/flip/11/edit</a><br />
+//     - <a href='/new'>/new（flip新規作成）</a><br />
+//     - <a href='/search'>/search（クエリ設定なし）</a><br />
+//     - <a href='/search?q=react'>/search?q=react</a><br />
+//     - <a href='/search?p=2&q=react'>/search?p=2&q=react</a><br />
+//     - <a href='/search?p=2&q=react&s=bookmark'>/search?page=2&s=react&s=bookmark</a><br />
+//     - <a href='/register'>/register</a><br />
+//     ---------------------------------------------------------------------<br />
+//   </div>
+// )
 
 
 class App extends Component {
@@ -62,9 +62,7 @@ class App extends Component {
           />
 
           <WrapperMain>
-            <AdminManager {...this.props} />
-
-            <br />
+            {/* <AdminManager {...this.props} /> */}
 
             <Switch>
               <Route exact path='/' component={Top} />
