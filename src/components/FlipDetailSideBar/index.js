@@ -17,7 +17,12 @@ const Img = styled.img`
 
 // TODO: SideBarのdivが食い込んでいるので，間隔調整を行う必要アリ
 const FlipDetailSideBar = (props) => {
-  const { flip, isBookmark, isGood } = props
+  const {
+    bookmarkCnt,
+    goodCnt,
+    isBookmark,
+    isGood
+  } = props
   const {
     postFlipBookmark,
     postFlipGood,
@@ -30,14 +35,14 @@ const FlipDetailSideBar = (props) => {
       <Img
         src={'/images/bookmark-on.png'}
         onClick={revertFlipBookmark}
-      /> {flip.bookmark_cnt}
+      /> {bookmarkCnt}
     </div>
   ) : (
     <div>
       <Img
         src={'/images/bookmark-off.png'}
         onClick={postFlipBookmark}
-      /> {flip.bookmark_cnt}
+      /> {bookmarkCnt}
     </div>
   )
 
@@ -46,14 +51,14 @@ const FlipDetailSideBar = (props) => {
       <Img
         src={'/images/favorite-on.png'}
         onClick={revertFlipGood}
-      /> {flip.good_cnt}
+      /> {goodCnt}
     </div>
   ) : (
     <div>
       <Img
         src={'/images/favorite-off.png'}
         onClick={postFlipGood}
-      /> {flip.good_cnt}
+      /> {goodCnt}
     </div>
   )
 

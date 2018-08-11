@@ -32,12 +32,14 @@ class FlipDetail extends Component {
   render() {
     if (this.props.isLoading) {
       const { author, flip, items, tags } = this.props.flipDetail
+      const { bookmarkCnt, goodCnt } = this.props
       const { isBookmark, isGood } = this.props
 
       return (
         <div className="FlipDetail">
           <FlipDetailSideBar
-            flip={flip}
+            bookmarkCnt={bookmarkCnt}
+            goodCnt={goodCnt}
             isBookmark={isBookmark}
             isGood={isGood}
             postFlipBookmark={() => this.props.postFlipBookmark(flip.flip_id)}
