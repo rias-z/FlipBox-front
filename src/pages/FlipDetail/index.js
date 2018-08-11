@@ -75,6 +75,7 @@ class FlipDetail extends Component {
               isAuthenticated={isAuthenticated}
               isAuthor={isAuthor}
               onSubmitFlipEdit={() => this.handleTransitionFlipEdit(flip.flip_id)}
+              onSubmitFlipDelete={() => this.props.deleteFlip(flip.flip_id)}
             />
 
             {/* メインビュー */}
