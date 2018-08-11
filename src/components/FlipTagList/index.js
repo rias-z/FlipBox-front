@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { IMAGE_ENDPOINT } from '../../config'
-
 // components
 import Chip from '../Chip'
 

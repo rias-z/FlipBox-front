@@ -34,8 +34,6 @@ const CreateAt = styled.span`
 const FlipHeader = (props) => {
   const { author, flip } = props
 
-  console.log(IMAGE_ENDPOINT)
-
   return (
     <Div className='FlipHeader'>
       {/* TODO: image_endpoint */}

@@ -25,9 +25,6 @@ const FlipDetailSideBar = (props) => {
     revertFlipGood,
   } = props
 
-  console.log("isBookmark", isBookmark)
-  console.log("isGood", isGood)
-
   const bookmarkButton = isBookmark ? (
     <div>
       <Img
